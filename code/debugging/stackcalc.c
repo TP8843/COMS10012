@@ -98,6 +98,7 @@ void calc(const char *line) {
 	if (d) ok = push(d);
 	if (!ok) {
 		printf("Error, stack full.\n");
+		return;
 	}
 
 	if (height != 1) {
