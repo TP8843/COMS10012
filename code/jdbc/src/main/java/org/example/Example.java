@@ -53,10 +53,10 @@ public class Example {
             } else if (args.length == 1) {
                 try {
                     int id = Integer.parseInt(args[0]);
-//                    example.readSingleData(c, id);
                     Party party = c.getParty(id);
                     if (party != null) {
-                        System.out.println(party.name);
+                        System.out.printf(  "ID: %s\n" +
+                                            "Name: %s\n", party.id, party.name);
                     } else {
                         System.out.println("No party with this ID.");
                     }

@@ -56,4 +56,41 @@ public class DataService  implements AutoCloseable {
             throw new DataServiceException(e);
         }
     }
+
+    public Candidate getCandidate (int id) throws DataServiceException {
+        String SQL =    "SELECT * " +
+                        "FROM Candidate " +
+                        "INNER JOIN Party ON Party.id = Candidate.party " +
+                        "INNER JOIN Ward ON Ward.id = Candidate.ward " +
+                        "WHERE Candidate.id = ?";
+
+        try (PreparedStatement s = c.prepareStatement(SQL)) {
+            s.setInt(1, id);
+            ResultSet r = s.executeQuery();
+            if (r.next()) {
+                Party party = new Party(
+                        r.getInt("Party.id"),
+                        r.getString("Party.name")
+                );
+                Ward ward = new Ward(
+                        r.getInt("Ward.id"),
+                        r.getString("Ward.name"),
+                        r.getInt("Ward.electorate")
+                );
+                Candidate candidate = new Candidate(
+                        r.getInt("Candidate.id"),
+                        r.getString("Candidate.name"),
+                        party,
+                        ward,
+                        r.getInt("Candidate.votes")
+                );
+                return candidate;
+
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new DataServiceException(e);
+        }
+    }
 }
