@@ -25,15 +25,14 @@
   - [Dynamic structure, part 1](./js/dynamic1.md)
   - [Dynamic structure, part 2](./js/dynamic2.md)
   - [Further exercises](./js/exercises.md)
-- [Webscraping]()
-  - [Crawling]()
-  - [BeautifulSoup]()
+- [Webscraping](./scrape/index.md)
+  - [Crawling](./scrape/crawl.md)
+  - [BeautifulSoup](./scrape/soup.md)
 - [React](./react/index.md)
   - [Installing React](./react/installing.md)
   - [Hello World in React](./react/hello.md)
   - [Exercise](./react/character.md)
 - [The Cloud](./cloud/cloud1.md)
-  - [AWS]()
 
 # A Complete Application
     
